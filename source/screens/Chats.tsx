@@ -1,11 +1,12 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import React from 'react';
+import {ScreenWrapper} from '../components';
 
 const Chats = () => {
   return (
-    <View>
+    <ScreenWrapper>
       <Text>Chats</Text>
-    </View>
+    </ScreenWrapper>
   );
 };
 

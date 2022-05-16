@@ -5,6 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {ChatScreen, ChatsScreen, SettingsScreen} from './source/screens';
+import {StatusBar} from 'react-native';
 
 type ChatStackParams = {
   Chats: undefined;
@@ -76,6 +77,7 @@ const BottomTabScreen = () => {
 const App = () => {
   return (
     <NavigationContainer>
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
       <BottomTabScreen />
     </NavigationContainer>
   );
