@@ -6,6 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {ChatScreen, ChatsScreen, SettingsScreen} from './source/screens';
 import {StatusBar} from 'react-native';
+import {AppStateProvider} from './source/state';
 
 type ChatStackParams = {
   Chats: undefined;
@@ -76,10 +77,20 @@ const BottomTabScreen = () => {
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      <BottomTabScreen />
-    </NavigationContainer>
+    <AppStateProvider>
+      {/* whole app state provider */}
+
+      <NavigationContainer>
+        {/* navigation container provider */}
+
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        <BottomTabScreen />
+
+        {/* navigation container provider */}
+      </NavigationContainer>
+
+      {/* whole app state provider */}
+    </AppStateProvider>
   );
 };
 
