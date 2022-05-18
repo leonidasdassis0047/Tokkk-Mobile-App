@@ -1,4 +1,4 @@
-import {CommentInterface} from '../reducers/commentsReducer';
+import {CommentInterface} from './reducer';
 
 export enum CommentsActionType {
   GET_POST_COMMENTS_PENDING = 'GET_POST_COMMENTS_PENDING',
@@ -6,21 +6,21 @@ export enum CommentsActionType {
   GET_POST_COMMENTS_FAIL = 'GET_POST_COMMENTS_FAIL',
 }
 
-interface commentActionPending {
+interface CommentsActionPending {
   type: CommentsActionType.GET_POST_COMMENTS_PENDING;
 }
 
-interface commentActionSuccess {
+interface CommentsActionSuccess {
   type: CommentsActionType.GET_POST_COMMENTS_SUCCESS;
   payload: CommentInterface[];
 }
 
-interface commentActionFail {
+interface CommentsActionFail {
   type: CommentsActionType.GET_POST_COMMENTS_FAIL;
   payload: string;
 }
 
 export type CommentsAction =
-  | commentActionPending
-  | commentActionSuccess
-  | commentActionFail;
+  | CommentsActionPending
+  | CommentsActionFail
+  | CommentsActionSuccess;

@@ -1,12 +1,14 @@
 import React from 'react';
+import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {Provider} from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {ChatScreen, ChatsScreen, SettingsScreen} from './source/screens';
-import {StatusBar} from 'react-native';
-import {AppStateProvider} from './source/state';
+
+import {store} from './source/state';
 
 type ChatStackParams = {
   Chats: undefined;
@@ -77,7 +79,7 @@ const BottomTabScreen = () => {
 
 const App = () => {
   return (
-    <AppStateProvider>
+    <Provider store={store}>
       {/* whole app state provider */}
 
       <NavigationContainer>
@@ -90,7 +92,7 @@ const App = () => {
       </NavigationContainer>
 
       {/* whole app state provider */}
-    </AppStateProvider>
+    </Provider>
   );
 };
 

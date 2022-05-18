@@ -1,20 +1,16 @@
 import axios from 'axios';
-import {Dispatch} from 'react';
-
+import {Dispatch} from 'redux';
 import {CommentsAction, CommentsActionType} from './actionTypes';
 
-export const getComments = (post_id: string) => {
-  return async (dispatch: Dispatch<CommentsAction>) => {
+// action for fetching
+const getPostComments = (post_id: string) => {
+  return async (dispatch: Dispatch<CommentsAction>): Promise<void> => {
     dispatch({
       type: CommentsActionType.GET_POST_COMMENTS_PENDING,
     });
 
     try {
-      // call api to get comments for this post
-      const {data} = await axios.get(
-        `https://jsonplaceholder.typicode.com/comments?postId=${post_id}`,
-      );
-
+      const {data} = await axios.get('some url');
       dispatch({
         type: CommentsActionType.GET_POST_COMMENTS_SUCCESS,
         payload: data,
